@@ -14,7 +14,7 @@ resource "aws_db_instance" "db" {
   allocated_storage    = 20
   engine               = "mysql"
   instance_class       = "db.t3.micro"
-  name                 = "stockdb"
+  name                  = "stockdb"
   username             = var.db_username
   password             = var.db_password
   parameter_group_name = "default.mysql8.0"
