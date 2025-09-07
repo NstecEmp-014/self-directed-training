@@ -9,7 +9,9 @@
 <body>
 <div layout:fragment="content">
   <h2>株一覧</h2>
-  <a th:href="@{/stocks/add}">新規登録</a>
+  <form th:action="@{/stocks/add}" method="get" style="display:inline;">
+    <button type="submit" class="action-btn">新規登録</button>
+  </form>
   <table>
     <thead>
       <tr>
@@ -27,7 +29,9 @@
         <td th:text="${stock.code}"></td>
         <td th:text="${stock.price}"></td>
         <td>
-          <a th:href="@{/stocks/edit/{id}(id=${stock.id})}">修正</a>
+          <form th:action="@{/stocks/edit/{id}(id=${stock.id})}" method="get" style="display:inline;">
+            <button type="submit" class="action-btn">修正</button>
+          </form>
           <form th:action="@{/stocks/delete/{id}(id=${stock.id})}" method="post" style="display:inline;">
             <button type="submit" onclick="return confirm('本当に削除しますか？');">削除</button>
           </form>

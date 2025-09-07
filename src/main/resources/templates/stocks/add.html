@@ -18,7 +18,7 @@
                 <li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
             </ul>
         </div>
-        <button type="submit">確認</button>
+    <button type="submit" class="action-btn">確認</button>
     </form>
     <a th:href="@{/stocks}">一覧へ戻る</a>
 </div>
