@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{stocks/fragments/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>株登録内容確認</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h2>株登録内容確認</h2>
+    <form th:action="@{/stocks/add/register}" th:object="${stockForm}" method="post">
+        <table>
+            <tr><th>銘柄名</th><td th:text="*{name}"></td></tr>
+            <tr><th>証券コード</th><td th:text="*{code}"></td></tr>
+            <tr><th>価格</th><td th:text="*{price}"></td></tr>
+        </table>
+        <button type="submit">登録</button>
+    </form>
+    <form th:action="@{/stocks/add}" method="get">
+        <button type="submit">入力画面へ戻る</button>
+    </form>
+</div>
+</body>
+</html>

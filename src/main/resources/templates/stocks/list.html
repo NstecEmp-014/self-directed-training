@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{stocks/fragments/layout}">
+<head>
+  <meta charset="UTF-8">
+  <title>株一覧</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <h2>株一覧</h2>
+  <a th:href="@{/stocks/add}">新規登録</a>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>銘柄名</th>
+        <th>証券コード</th>
+        <th>価格</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="stock : ${stocks}">
+        <td th:text="${stock.id}"></td>
+        <td th:text="${stock.name}"></td>
+        <td th:text="${stock.code}"></td>
+        <td th:text="${stock.price}"></td>
+        <td>
+          <a th:href="@{/stocks/edit/{id}(id=${stock.id})}">修正</a>
+          <form th:action="@{/stocks/delete/{id}(id=${stock.id})}" method="post" style="display:inline;">
+            <button type="submit" onclick="return confirm('本当に削除しますか？');">削除</button>
+          </form>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

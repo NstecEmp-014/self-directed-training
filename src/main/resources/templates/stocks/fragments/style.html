@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <style th:fragment="style">
+    body {
+      background-color: #fff5f5;
+      font-family: 'Segoe UI', 'Meiryo', sans-serif;
+    }
+    header, nav, footer {
+      background-color: #e53935;
+      color: #fff;
+      padding: 10px 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+      letter-spacing: 0.04em;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 16px;
+      font-weight: bold;
+      transition: text-decoration 0.2s;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 30px 40px;
+    }
+    h2 {
+      color: #e53935;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #e53935;
+      padding-bottom: 5px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+    th, td {
+      border: 1px solid #e53935;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #ffcdd2;
+      color: #b71c1c;
+    }
+    tr:nth-child(even) {
+      background-color: #ffebee;
+    }
+    form {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 12px;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #b71c1c;
+    }
+    input[type="text"], input[type="number"] {
+      padding: 6px 10px;
+      border: 1px solid #e53935;
+      border-radius: 4px;
+      width: 220px;
+      box-sizing: border-box;
+      background-color: #fff8f8;
+    }
+    button {
+      background-color: #e53935;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 18px;
+      font-size: 1em;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 10px;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background-color: #b71c1c;
+    }
+    a {
+      color: #e53935;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+    a:hover {
+      text-decoration: underline;
+      color: #b71c1c;
+    }
+    ul {
+      color: #e53935;
+      margin-top: 8px;
+    }
+    small {
+      color: #b71c1c;
+    }
+  </style>
+</html>

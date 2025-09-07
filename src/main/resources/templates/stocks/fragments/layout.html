@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="UTF-8">
+  <title>株管理システム</title>
+  <th:block th:replace="stocks/fragments/style :: style"></th:block>
+</head>
+<body>
+  <header th:replace="stocks/fragments/header :: header"></header>
+  <main>
+    <div layout:fragment="content"></div>
+  </main>
+  <footer th:replace="stocks/fragments/footer :: footer"></footer>
+</body>
+</html>
