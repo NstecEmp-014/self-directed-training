@@ -3,7 +3,7 @@ package com.example.stockapp.helper;
 import com.example.stockapp.entity.Stock;
 import com.example.stockapp.form.StockForm;
 
-public class StockHelper {
+public class StockHelper { // StockとStockFormの変換を行うヘルパークラス
     public static Stock convert(StockForm form) {
         Stock stock = new Stock();
         stock.setName(form.getName());
@@ -13,7 +13,7 @@ public class StockHelper {
         return stock;
     }
 
-    public static StockForm convert(Stock stock) {
+    public static StockForm convert(Stock stock) { // StockをStockFormに変換
         StockForm form = new StockForm();
         form.setId(stock.getId()); 
         form.setName(stock.getName());

@@ -14,8 +14,10 @@ resource "aws_db_instance" "db" { # RDSデータベースインスタンス(db)�
   allocated_storage    = 20 # データベースのストレージ容量(GB)
   engine               = "mysql" # 使用するDBエンジン
   instance_class       = "db.t3.micro" # DBインスタンスタイプ
-  name                 = "stockdb" # DB名
+  db_name              = "stockdb" # DB名
   username             = var.db_username # DBユーザー名(変数から指定)
   password             = var.db_password # DBパスワード(変数から指定)
   parameter_group_name = "default.mysql8.0" # パラメータグループ名
+  db_subnet_group_name = var.db_subnet_group_name # DBサブネットグループ名(変数から指定)
+  vpc_security_group_ids = [var.db_security_group_id] # セキュリティグループ(必要なら)
 } # RDSデータベースインスタンス(db)のリソース定義終了

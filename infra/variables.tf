@@ -1,3 +1,12 @@
+variable "db_subnet_group_name" {
+  description = "DBサブネットグループ名"
+  type        = string
+}
+
+variable "db_security_group_id" {
+  description = "DB用セキュリティグループID"
+  type        = string
+}
 variable "aws_region" {
   description = "AWS region"
   type        = string

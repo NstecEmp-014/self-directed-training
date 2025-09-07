@@ -8,18 +8,22 @@
 </head>
 <body>
 <div layout:fragment="content">
-    <h2>株登録内容確認</h2>
-    <form th:action="@{/stocks/add/register}" th:object="${stockForm}" method="post">
-        <table>
-            <tr><th>銘柄名</th><td th:text="*{name}"></td></tr>
-            <tr><th>証券コード</th><td th:text="*{code}"></td></tr>
-            <tr><th>価格</th><td th:text="*{price}"></td></tr>
-        </table>
-        <button type="submit">登録</button>
-    </form>
-    <form th:action="@{/stocks/add}" method="get">
-        <button type="submit">入力画面へ戻る</button>
-    </form>
+    <h2 style="text-align:center;">株登録内容確認</h2>
+        <form th:action="@{/stocks/add/register}" th:object="${stockForm}" method="post">
+                <table style="margin: 0 auto;">
+                        <tr><th>銘柄名</th><td th:text="*{name}"></td></tr>
+                        <tr><th>証券コード</th><td th:text="*{code}"></td></tr>
+                        <tr><th>価格</th><td th:text="*{price}"></td></tr>
+                </table>
+                <div style="text-align:center;">
+                    <button type="submit">登録</button>
+                </div>
+        </form>
+        <form th:action="@{/stocks/add}" method="get">
+                <div style="text-align:center;">
+                    <button type="submit">入力画面へ戻る</button>
+                </div>
+        </form>
 </div>
 </body>
 </html>

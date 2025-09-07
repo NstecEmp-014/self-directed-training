@@ -6,10 +6,10 @@ import java.util.List;
 
 @Mapper
 public interface StockRepository {
-    List<Stock> findStocks();
-    Stock findById(Long id);
-    void insertStock(Stock stock);
-    void updateStock(Stock stock);
-    void deleteStock(Long id);
-    int countByCode(String code);
+    List<Stock> findStocks(); // 全ての株を取得
+    Stock findById(Long id); // IDで株を取得
+    void insertStock(Stock stock); // 新しい株を追加
+    void updateStock(Stock stock); // 既存の株を更新
+    void deleteStock(Long id); // IDで株を削除
+    int countByCode(String code); // 証券コードで株をカウント
 }

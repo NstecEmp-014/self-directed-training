@@ -4,9 +4,9 @@ import lombok.Data;
 
 @Data
 public class Stock {
-    private Long id;
-    private String name;
-    private String code;
-    private Integer price;
-    private Integer deleteFlag;
+    private Long id; // ID
+    private String name; // 銘柄名
+    private String code; // 証券コード
+    private Integer price; // 現在価格
+    private Integer deleteFlag; // 削除フラグ
 }
