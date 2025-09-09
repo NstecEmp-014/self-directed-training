@@ -6,6 +6,7 @@ import com.example.stockapp.form.StockForm;
 import com.example.stockapp.helper.StockHelper;
 import com.example.stockapp.service.StockService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.relational.core.sql.In;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -76,7 +77,7 @@ public class StockController {
 
     /** 編集画面 */
     @GetMapping("/edit/{id}")
-    public String editForm(@PathVariable Long id, Model model) {
+    public String editForm(@PathVariable Integer id, Model model) {
         Stock stock = stockService.findById(id);
         model.addAttribute("stockForm", StockHelper.convert(stock));
         return "stocks/edit";
@@ -84,7 +85,7 @@ public class StockController {
 
     /** 編集処理 */
     @PostMapping("/edit/{id}")
-    public String edit(@PathVariable Long id,
+    public String edit(@PathVariable Integer id,
                        @Validated @ModelAttribute("stockForm") StockForm stockForm,
                        BindingResult bindingResult,
                        RedirectAttributes redirectAttributes) {
@@ -112,7 +113,7 @@ public class StockController {
 
     /** 削除処理 */
     @PostMapping("/delete/{id}")
-    public String delete(@PathVariable Long id) {
+    public String delete(@PathVariable Integer id) {
         stockService.deleteStock(id);
         return "redirect:/stocks";
     }

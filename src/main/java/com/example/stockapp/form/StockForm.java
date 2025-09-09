@@ -7,11 +7,11 @@ import jakarta.validation.constraints.NotNull;
 
 @Data
 public class StockForm {
-    private Long id;
+    private Integer id; // ID
     @NotBlank
-    private String name;
+    private String name; // 銘柄名
     @NotBlank
-    private String code;
+    private String code; // 証券コード
     @NotNull
-    private Integer price;
+    private Integer price; // 現在価格
 }

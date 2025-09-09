@@ -1,5 +1,0 @@
-CREATE TABLE stock (
-  id BIGINT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(255),
-  delete_flag INT
-);
