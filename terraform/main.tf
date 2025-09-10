@@ -9,6 +9,13 @@ terraform {
       version = "~> 3.0"
     }
   }
+
+  backend "s3" {
+    bucket  = "stockmg-tfstate-bucket-tmtk"
+    key     = "stockmg-dev.tfstate"
+    region  = "ap-northeast-1"
+    profile = "terraform"
+  }
 }
 
 # ---------------------------------------------

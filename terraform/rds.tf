@@ -41,7 +41,7 @@ resource "random_string" "db_password" {
   special = false
 }
 resource "aws_db_instance" "postgresql_standalone" {
-  engine         = "postgres"
+  engine = "postgres"
 
   identifier = "${var.project}-${var.environment}-postgresql-standalone"
 
@@ -56,7 +56,7 @@ resource "aws_db_instance" "postgresql_standalone" {
   storage_encrypted     = false
 
   multi_az = false // シングルAZ 後でマルチAZに変更予定
- 
+
   name                   = "stockmanagement"
   availability_zone      = "ap-northeast-1a"
   db_subnet_group_name   = aws_db_subnet_group.postgresql_standalone_subnetgroup.name
@@ -75,7 +75,7 @@ resource "aws_db_instance" "postgresql_standalone" {
   skip_final_snapshot = true
   deletion_protection = false
 
-  apply_immediately = true 
+  apply_immediately = true
 
   tags = {
     Name    = "${var.project}-${var.environment}-postgresql-standalone"
