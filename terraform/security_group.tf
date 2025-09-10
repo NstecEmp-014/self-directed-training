@@ -41,6 +41,16 @@ resource "aws_security_group_rule" "web_out_tcp3000" {
   source_security_group_id = aws_security_group.app_sg.id
 }
 
+# 8080/TCPインバウンドルール追加
+resource "aws_security_group_rule" "web_in_8080" {
+  security_group_id = aws_security_group.web_sg.id
+  type              = "ingress"
+  protocol          = "tcp"
+  from_port         = 8080
+  to_port           = 8080
+  cidr_blocks       = ["0.0.0.0/0"]
+}
+
 # app security group
 resource "aws_security_group" "app_sg" {
   name        = "${var.project}-${var.environment}-app-sg"
