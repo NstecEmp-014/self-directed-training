@@ -1,5 +1,5 @@
--- 株テーブルのみ
-create table stock(
+DROP TABLE IF EXISTS stock;
+CREATE TABLE stock(
   id SERIAL PRIMARY KEY,
   name VARCHAR(50) NOT NULL,
   code VARCHAR(10) NOT NULL,
