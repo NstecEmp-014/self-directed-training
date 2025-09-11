@@ -48,7 +48,8 @@ sourceSets {
     main {
         resources {
             srcDirs = ['src/main/resources']
-            includes = ['**/*.properties', '**/*.yml', '**/*.xml']
+            // 下記のように filter を使ってください
+            include '**/*.properties', '**/*.yml', '**/*.xml'
         }
     }
 }
