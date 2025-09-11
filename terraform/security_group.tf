@@ -45,7 +45,7 @@ resource "aws_security_group_rule" "web_out_tcp3000" {
 resource "aws_security_group_rule" "web_in_8080" {
   security_group_id = aws_security_group.web_sg.id
   type              = "ingress"
-  protocol          = "http"
+  protocol          = "tcp"
   from_port         = 8080
   to_port           = 8080
   cidr_blocks       = ["0.0.0.0/0"]
