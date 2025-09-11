@@ -44,16 +44,6 @@ dependencies {
 	implementation 'org.postgresql:postgresql:42.7.2'
 }
 
-sourceSets {
-    main {
-        resources {
-            srcDirs = ['src/main/resources']
-            // 下記のように filter を使ってください
-            include '**/*.properties', '**/*.yml', '**/*.xml'
-        }
-    }
-}
-
 tasks.named('test') {
 	useJUnitPlatform()
 }
