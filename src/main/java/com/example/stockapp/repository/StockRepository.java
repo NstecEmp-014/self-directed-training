@@ -2,7 +2,7 @@ package com.example.stockapp.repository;
 
 import com.example.stockapp.entity.Stock;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.data.relational.core.sql.In;
+
 
 import java.util.List;
 
