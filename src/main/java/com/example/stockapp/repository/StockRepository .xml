@@ -9,7 +9,7 @@
     SELECT * FROM stock WHERE delete_flag = 0
   </select>
 
-  <select id="findById" parameterType="long" resultType="com.example.stockapp.entity.Stock">
+  <select id="findById" parameterType="integer" resultType="com.example.stockapp.entity.Stock">
     SELECT * FROM stock WHERE id = #{id}
   </select>
 
@@ -24,7 +24,7 @@
     WHERE id = #{id}
   </update>
 
-  <delete id="deleteStock" parameterType="long">
+  <delete id="deleteStock" parameterType="integer">
     UPDATE stock SET delete_flag = 1 WHERE id = #{id}
   </delete>
 
