@@ -84,5 +84,21 @@ resource "aws_db_instance" "postgresql_standalone" {
   }
 }
 
+output "rds_endpoint" {
+  description = "RDSのエンドポイント"
+  value       = aws_db_instance.postgresql_standalone.endpoint
+}
+
+output "rds_db_name" {
+  description = "RDSのDB名"
+  value       = aws_db_instance.postgresql_standalone.name
+}
+
+output "rds_db_password" {
+  description = "RDSのDBパスワード"
+  value       = aws_db_instance.postgresql_standalone.password
+  sensitive   = true
+}
+
 
 
