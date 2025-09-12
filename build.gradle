@@ -42,6 +42,10 @@ dependencies {
     implementation 'jakarta.validation:jakarta.validation-api:3.0.2'
 	// PostgreSQL JDBC Driver ←追加！
 	implementation 'org.postgresql:postgresql:42.7.2'
+    // Thymeleaf ←追加！
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.2.1'
+
 }
 
 tasks.named('test') {

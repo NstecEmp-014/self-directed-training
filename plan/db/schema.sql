@@ -1,4 +1,4 @@
-CREATE TABLE stock (
+CREATE TABLE stocs (
   id SERIAL PRIMARY KEY,           -- 自動採番のID
   name VARCHAR(50) NOT NULL,       -- 銘柄名
   code VARCHAR(10) NOT NULL,       -- 証券コード

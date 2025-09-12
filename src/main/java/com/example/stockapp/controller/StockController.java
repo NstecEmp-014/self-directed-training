@@ -1,4 +1,3 @@
-
 package com.example.stockapp.controller;
 
 import com.example.stockapp.entity.Stock;
@@ -6,7 +5,6 @@ import com.example.stockapp.form.StockForm;
 import com.example.stockapp.helper.StockHelper;
 import com.example.stockapp.service.StockService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.relational.core.sql.In;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,9 +22,13 @@ public class StockController {
 
     @Autowired
     private StockService stockService;
+    @ModelAttribute("stockForm")
+    public StockForm setUpForm() {
+        return new StockForm();
+    }
 
     /** 株一覧 */
-    @GetMapping
+    @GetMapping("")
     public String list(Model model) {
         List<Stock> stocks = stockService.findStocks();
         model.addAttribute("stocks", stocks);
@@ -117,4 +119,5 @@ public class StockController {
         stockService.deleteStock(id);
         return "redirect:/stocks";
     }
+
 }
