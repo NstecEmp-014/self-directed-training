@@ -9,7 +9,6 @@
     WHERE delete_flag = 0
   </select>
   
-
   <select id="findById" parameterType="int" resultType="com.example.stockapp.entity.Stock">
     SELECT id, name, code, price, delete_flag
     FROM stock
