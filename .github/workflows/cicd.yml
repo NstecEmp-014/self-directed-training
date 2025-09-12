@@ -62,8 +62,8 @@ jobs:
           done
           psql -h 127.0.0.1 -p 5432 -U postgres -d postgres -tc "SELECT 1 FROM pg_database WHERE datname='fullness_ec'" | grep -q 1 \
             || psql -h 127.0.0.1 -p 5432 -U postgres -d postgres -c "CREATE DATABASE fullness_ec"
-          psql -v ON_ERROR_STOP=1 -h 127.0.0.1 -p 5432 -U postgres -d postgres -f src/main/resources/db/init.sql
-          psql -v ON_ERROR_STOP=1 -h 127.0.0.1 -p 5432 -U postgres -d fullness_ec -f src/main/resources/db/init.sql
+          psql -v ON_ERROR_STOP=1 -h 127.0.0.1 -p 5432 -U postgres -d postgres -f src/main/resources/db/schema.sql
+          psql -v ON_ERROR_STOP=1 -h 127.0.0.1 -p 5432 -U postgres -d fullness_ec -f src/main/resources/db/schema.sql
 
       - name: Build jar (skip tests)
         run: ./gradlew bootJar -x test
