@@ -1,5 +1,5 @@
 # ---------------------------------------------
-# Terraform configuration //
+# Terraform configuration 
 # ---------------------------------------------
 terraform {
   required_version = ">=0.13"
