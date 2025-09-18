@@ -55,10 +55,9 @@ resource "aws_db_instance" "postgresql_standalone" {
   storage_type          = "gp2"
   storage_encrypted     = false
 
-  multi_az = false // シングルAZ 後でマルチAZに変更予定
+  multi_az = true
 
   name                   = "stockmanagement"
-  availability_zone      = "ap-northeast-1a"
   db_subnet_group_name   = aws_db_subnet_group.postgresql_standalone_subnetgroup.name
   vpc_security_group_ids = [aws_security_group.db_sg.id]
 
