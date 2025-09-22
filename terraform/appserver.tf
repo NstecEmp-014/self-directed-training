@@ -1,4 +1,56 @@
 # ---------------------------------------------
+# Launch Template for Auto Scaling
+# ---------------------------------------------
+resource "aws_launch_template" "app_lt" {
+  name_prefix   = "${var.project}-${var.environment}-app-lt"
+  image_id      = data.aws_ami.app.id
+  instance_type = "t2.micro"
+  key_name      = aws_key_pair.keypair.key_name
+  vpc_security_group_ids = [
+    aws_security_group.app_sg.id,
+    aws_security_group.opmng_sg.id
+  ]
+  # user_dataなど必要に応じて追加
+}
+
+# ---------------------------------------------
+# Auto Scaling Group
+# ---------------------------------------------
+resource "aws_autoscaling_group" "app_asg" {
+  name                      = "${var.project}-${var.environment}-app-asg"
+  min_size                  = 1
+  max_size                  = 2
+  desired_capacity          = 1
+  vpc_zone_identifier       = [aws_subnet.public_subnet_1a.id, aws_subnet.public_subnet_1c.id]
+  launch_template {
+    id      = aws_launch_template.app_lt.id
+    version = "$Latest"
+  }
+  health_check_type         = "EC2"
+  health_check_grace_period = 300
+
+  tag {
+    key                 = "Name"
+    value               = "${var.project}-${var.environment}-app-asg"
+    propagate_at_launch = true
+  }
+}
+
+# ---------------------------------------------
+# Auto Scaling Policy (CPU 50%でスケール)
+# ---------------------------------------------
+resource "aws_autoscaling_policy" "scale_policy" {
+  name                   = "cpu-target-tracking"
+  autoscaling_group_name = aws_autoscaling_group.app_asg.name
+  policy_type            = "TargetTrackingScaling"
+  target_tracking_configuration {
+    predefined_metric_specification {
+      predefined_metric_type = "ASGAverageCPUUtilization"
+    }
+    target_value = 50
+  }
+}
+# ---------------------------------------------
 # key pair
 # ---------------------------------------------
 resource "aws_key_pair" "keypair" {
